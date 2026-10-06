@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  localstack:
+    container_name: localstack-main
+    image: ministackorg/ministack:latest 
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - PERSIST_STATE=1                      # Tells MiniStack to save database state to disk
+      - S3_PERSIST=1                         # Optional Keeps S3 files saved if you use S3
+      - MINISTACK_REGION=us-east-1
+      - MINISTACK_ACCOUNT_ID=123456789012
+    
+    volumes:
+      - "./volume/state:/tmp/ministack-state"       # Where Cognito, DynamoDB, etc save state
+      - "./volume/s3:/tmp/ministack-data/s3"        # Optional Where S3 objects are physically saved
+      - "/var/run/docker.sock:/var/run/docker.sock" # Needed if you use local Lambda functions
+      - "./init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # MiniStack honors LocalStacks init script path

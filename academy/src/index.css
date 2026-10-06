@@ -1,0 +1,373 @@
+html {
+  /* Forces the browser to always keep the scrollbar channel open */
+  scrollbar-gutter: stable;
+}
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+}
+@theme {
+  --font-montserrat: "Montserrat Alternates", sans-serif;
+  --color-nav-bg: #1a202c;
+  --color-nav-text: #f7fafc;
+  --color-text-main: #2d3748;
+  --color-text-header: #1a202c;
+  --color-accent-blue: #2b6cb0;
+}
+
+.markdown-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  color: var(--color-text-main);
+  line-height: 1.7;
+}
+
+.markdown-body h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-header);
+  margin-bottom: 24px;
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 8px;
+  white-space: nowrap;
+}
+
+.markdown-body h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent-blue);
+  margin-top: 32px;
+  margin-bottom: 8px;
+}
+
+.markdown-body p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.markdown-body ul {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+
+.markdown-body li {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.markdown-body strong {
+  font-weight: 700;
+  color: var(--color-text-header);
+}
+
+.main-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background-color: var(--color-nav-bg);
+  color: var(--color-nav-text);
+  height: 64px;
+}
+
+.nav-links-list {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-logo{
+  max-width: 200px;     
+  height: auto;
+  border-radius: 8px;     
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.courses {
+  max-width: 1000px;        /* Widened significantly from 850px to 1000px */
+  margin: 0 auto;
+  padding: 24px 24px;       /* Reduced top/bottom padding from 40px to 24px */
+  color: var(--color-text-main);
+  line-height: 1.6;         /* Slightly tighter line spacing */
+  font-family: sans-serif;
+}
+
+/* Widen the main header exclusively */
+.courses h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-header);
+  margin-bottom: 20px;      /* Reduced vertical gap below main title */
+  border-bottom: 2px solid #edf2f7;
+  padding-bottom: 8px;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+/* --- TIGHTER, WIDER INDIVIDUAL COURSE LISTINGS --- */
+
+.courses h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent-blue);
+  
+  /* Reduced vertical spacing between sections */
+  margin-top: 18px;         /* Cut in half from 36px to keep blocks tight */
+  margin-bottom: 4px;       /* Tightened gap right above its description text */
+  letter-spacing: 0.02em;
+  
+  border-top: none;         /* Removed the line separator to save vertical space */
+  padding-top: 0;
+}
+
+.courses p {
+  font-size: 1.05rem;
+  color: #4a5568;
+  margin-bottom: 12px;      /* Reduced spacing after paragraphs from 24px to 12px */
+  text-align: justify;      /* Stretches text horizontally across the full 1000px width */
+}
+
+.main-place{
+  max-width: 280px;     
+  height: auto;
+  border-radius: 8px;     
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.login-admin {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  width: 700px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.login-admin-title {
+  font-size: 30px;
+}
+
+.login-admin-subtitle {
+  font-size: 24px;
+}
+
+.login-admin-input {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.login-admin-button {
+  width: 90px;
+  padding: 16px;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #111827;
+  color: #ffffff;
+  align-self: center;
+  text-align: center;
+}
+
+.login-admin-error,
+.login-admin-success {
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fee2e2;
+  color: #991b1b;
+  box-sizing: border-box;
+}
+
+.login-admin-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.tab-editor {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 8px;
+  width: 1100px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.tab-editor-input,
+.tab-editor-small-input,
+.tab-editor-big-input 
+ {
+  width: 70%;
+  padding: 8px;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.tab-editor-small-input {
+  width: 60px;
+}
+
+.tab-editor-big-input {
+  width: 100%;
+}
+
+.tab-editor-button {
+  width: 80px;
+  padding: 8px;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #111827;
+  color: #ffffff;
+  align-self: center;
+  text-align: center;
+}
