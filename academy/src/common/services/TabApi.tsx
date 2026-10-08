@@ -1,4 +1,4 @@
-import { AWS_REGION,ACADEMY_VALIDATION_URL, ACADEMY_URL,IDENTITY_POOL_ID, USER_POOL_ID } from '../../config';
+import { AWS_REGION,ACADEMY_LOGIN_URL, ACADEMY_URL,IDENTITY_POOL_ID, USER_POOL_ID } from '../../config';
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand, ScanCommand } from "@aws-sdk/lib-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
@@ -19,7 +19,7 @@ const getDocClient = () => {
       },
       identityPoolId: IDENTITY_POOL_ID,
       logins: {
-        [`${ACADEMY_VALIDATION_URL}/${USER_POOL_ID}`]: idToken
+        [`${ACADEMY_LOGIN_URL}/${USER_POOL_ID}`]: idToken
       },
     }),
   });
