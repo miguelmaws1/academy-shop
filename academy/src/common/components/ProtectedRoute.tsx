@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from './useAuth'; // Adjust to your actual path
+import { useAuth } from './AuthProvider'; // Adjust to your actual path
 
 export function ProtectedRoute() {
   const { isAuthenticated } = useAuth();

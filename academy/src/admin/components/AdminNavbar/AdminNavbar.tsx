@@ -1,5 +1,5 @@
 
-import { useAuth } from '../../common/components/useAuth';
+import { useAuth } from '../../../common/components/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 
 export const AdminNavbar = () => {

@@ -8,11 +8,12 @@
 // export const USER_POOL_ID ="us-east-1_CPGidI0oA"
 export const ACADEMY_VALIDATION_URL = import.meta.env.VITE_MY_URL || "https://cognito-idp.us-east-1.amazonaws.com";
 export const ACADEMY_URL = import.meta.env.VITE_MY_URL || "";
+export const ACADEMY_LOGIN_URL = "cognito-idp.us-east-1.amazonaws.com";
 export const AWS_REGION = "us-east-1"; 
 export const COGNITO_CLIENT_ID = "2ifkd8o1fe21khpm6ms9r6lknn"; 
 export const COGNITO_AUTH_FLOW = "USER_PASSWORD_AUTH";
 export const IDENTITY_POOL_ID ='us-east-1:b26c3caa-70ba-4ff8-b074-dd00850004d9'
 export const USER_POOL_ID = "us-east-1_jRsdUpGdj"; 
-export const ACADEMY_LOGIN_URL = "cognito-idp.us-east-1.amazonaws.com";
+
 
 

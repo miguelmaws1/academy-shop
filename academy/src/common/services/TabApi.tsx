@@ -3,7 +3,7 @@ import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, PutCommand, ScanCommand } from "@aws-sdk/lib-dynamodb";
 import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 import { encodeTab,decodeTab, type TabDataRequestPayload,type TabDataResponsePayload } from '../components/TabEncoderDecoder';
-import { getIdToken} from '../components/useAuth';
+import { getIdToken} from '../components/AuthProvider';
 
 const getDocClient = () => {
   const idToken = getIdToken();

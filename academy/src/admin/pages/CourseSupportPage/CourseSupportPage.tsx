@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react';
-import { mockDynamoDB } from '../../common/mocks/mockDynamoDB';
-import {TabRenderer}  from '../../common/components/TabRenderer';
-import {TabRenderer2}  from '../../common/components/TabRenderer2';
-import { getTabs } from '../../common/services/TabApi';
+import { mockDynamoDB } from '../../../common/mocks/mockDynamoDB';
+import {TabRenderer}  from '../../../common/components/TabRenderer';
+import { getTabs } from '../../../common/services/TabApi';
 import type { TabDataResponsePayload } from '@/common/components/TabEncoderDecoder';
 
-
-
-
-// 1. Declare the component using a variable/arrow function
 export const CourseSupportPage = () => {
   const [song, setSong] = useState<any>(null);
   const [tab, setTab] = useState<TabDataResponsePayload | null>(null);
@@ -42,11 +37,10 @@ export const CourseSupportPage = () => {
            <div >
            <select
             className="tab-editor-input"
-            id="time-beats-text"
+            id="tab-title-selector"
              onChange={handleTabSelection}
         >           
            <option value="" >-- Selecciona una opción --</option>
-        
         
         {tabs?.map((tab) => (
           <option key={tab.SongId} value={tab.SongId}>
@@ -55,8 +49,6 @@ export const CourseSupportPage = () => {
         ))}
         </select>
         </div>
-      {/* <h3>Editing: {song.Title} </h3>
-      <TabRenderer2 tabText={song.TabText} /> */}
 
       <TabRenderer tab={tab} />
 

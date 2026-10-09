@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { homeContent } from '../content/homeContent';
+import { homeContent } from '../../content/homeContent';
 
 export const HomePage = () => {
   return (

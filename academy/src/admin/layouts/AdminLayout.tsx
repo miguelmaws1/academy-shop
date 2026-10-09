@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { AdminNavbar } from "../components/AdminNavbar";
-import { useAuth } from '../../common/components/useAuth';
+import { AdminNavbar } from "../components/AdminNavbar/AdminNavbar";
+import { useAuth } from '../../common/components/AuthProvider';
 
 export const AdminLayout = () => {
   const { isAuthenticated, loading } = useAuth(); 

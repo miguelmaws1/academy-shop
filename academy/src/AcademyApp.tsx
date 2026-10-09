@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
 import { appRouter } from './app.router';
-import { AuthProvider } from './common/components/useAuth';
+import { AuthProvider } from './common/components/AuthProvider';
 
 export const AcademyApp = () => {
   return (

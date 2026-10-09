@@ -1,4 +1,4 @@
-import { sendTab } from "../../common/services/TabApi";
+import { sendTab } from "../../../common/services/TabApi";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -122,7 +122,7 @@ export const TabPage = () => {
         setError("No se pudo enviar el tab");
         console.log(result);
       } else {
-        setSuccess('Se envio el tab');
+        setSuccess('Se envió el tab');
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -141,8 +141,8 @@ export const TabPage = () => {
         <h2 className="login-admin-title">Ingresa la información del tab</h2>
        
         {/* Display Status Messages */}
-        {error && <div className="login-admin-error">{error}</div>}
-        {success && <div className="login-admin-success">{success}</div>}
+        {error && <div className="login-admin-error" id= 'errorMessage'>{error}</div>}
+        {success && <div className="login-admin-success" id= 'successMessage'>{success}</div>}
         <div >
           <label htmlFor="tab-title-text">Ingresa el título</label>
           <br/>

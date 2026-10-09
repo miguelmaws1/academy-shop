@@ -1,10 +1,5 @@
 import type { TabDataResponsePayload } from "./TabEncoderDecoder";
 
-
-// export function TabRenderer({ lines, stringLayout }: { lines?: string[]; stringLayout?: string[] }) {
-
-
-
 //   if (!lines || !stringLayout) return <p>No tab data available.</p>;
 export function TabRenderer({ tab }: { tab?: TabDataResponsePayload  | null }) {
   
@@ -41,60 +36,6 @@ export function TabRenderer({ tab }: { tab?: TabDataResponsePayload  | null }) {
     </div>
   );
 }
-  const formatTabWithBreaks2 = (lines: string[],  stringLayout: string[], sliceResolution: number, measuresPerLine = 3) => {
-    //const headerLines = lines.filter(line => line.startsWith('Tempo:') || line.startsWith('Time:'));
-   // const tabLines = lines.filter(line => !line.startsWith('Tempo:') && !line.startsWith('Time:') && line.trim() !== '');
-
-    console.log("lines ",lines);
-
-    if (lines.length === 0 || stringLayout.length === 0) return "";
-
-    // Isolate the 6 strings + the 1 timing line (7 tracks total)
-    // const stringTracks = tabLines.map(line => {
-    //   const parts = line.split('|');
-    //   const label = parts[0]; // e.g., "E " or "    "
-    //   // Split the actual musical content by bars, filtering out empty items
-    //   const measures = parts.slice(1).map(m => m.trim()).filter(m => m !== '');
-    //   return { label, measures };
-    // });
-    let stringIndex = 0;
-    const stringTracks = stringLayout.map(label => {
-      let measures: string[] = [];
-     
-      let i = 0;
-      const targetLine = lines[stringIndex];
-
-      while (i < targetLine.length) {
-        measures.push(targetLine.slice(i, i + sliceResolution));
-        i += sliceResolution;
-      }
-      stringIndex++;
-      return { label, measures };
-    });
-
-    const totalMeasures = stringTracks[0].measures.length;
-   //const totalMeasures = stringTracks[0] ? Math.max(0, stringTracks[0].split('|').length - 2) : 0;
-
-    //let formattedResult = [...headerLines, ''].join('\n') + '\n';
-    let formattedResult = '';
-    // Loop through the total measures chunking them based on measuresPerLine
-    for (let i = 0; i < totalMeasures; i += measuresPerLine) {
-      stringTracks.forEach(track => {
-        const chunk = track.measures.slice(i, i + measuresPerLine);
-        if (chunk.length > 0) {
-          // Reconstruct the staff block with bounding vertical lines |
-          const isTimingLine = track.label.trim() === '';
-          const separator = isTimingLine ? '   ' : '|';
-          formattedResult += `${track.label} ${separator}---${chunk.join('|')}---${separator}\n`;
-        }
-      });
-      formattedResult += '\n'; // Add spacing between stacked blocks
-    }
-
-    return formattedResult;
-  };
-
-
   const formatTabWithBreaks = (lines: string[],  stringLayout: string[], sliceResolution: number, measuresPerLine = 3) => {
    console.log("lines ",lines);
 
@@ -142,9 +83,6 @@ export function TabRenderer({ tab }: { tab?: TabDataResponsePayload  | null }) {
     });
 
    const totalMeasures = stringTracks[0].measures.length;
-   //const totalMeasures = stringTracks[0] ? Math.max(0, stringTracks[0].split('|').length - 2) : 0;
-
-    //let formattedResult = [...headerLines, ''].join('\n') + '\n';
     let formattedResult = '';
     // Loop through the total measures chunking them based on measuresPerLine
     for (let i = 0; i < totalMeasures; i += measuresPerLine) {

@@ -1,17 +1,15 @@
 import { createBrowserRouter, Navigate } from "react-router-dom"; 
 import { ShopLayout } from "./shop/layouts/ShopLayout";
-import { HomePage } from "./shop/pages/HomePage";
-// import { LoginPage } from "./auth/pages/LoginPage";
-// import { DashboardPage } from "./admin/pages/DashboardPage";
-// import { lazy } from "react";
-import { CoursesPage } from "./shop/pages/CoursesPage";
-import { ContactPage } from "./shop/pages/ContactPage";
-import {AdminLayout} from "./admin/layouts/AdminLayout";
+import { HomePage } from "./shop/pages/HomePage/HomePage";
+import { lazy } from "react";
+import { CoursesPage } from "./shop/pages/CoursesPage/CoursesPage";
+import { ContactPage } from "./shop/pages/ContactPage/ContactPage";
+import { AdminLayout } from "./admin/layouts/AdminLayout";
 import { DashboardPage } from "./admin/pages/DashboardPage";
-import { CourseSupportPage } from "./admin/pages/CourseSupportPage";
-import { LoginAdminPage } from "./admin/pages/LoginAdminPage";
+import { CourseSupportPage } from "./admin/pages/CourseSupportPage/CourseSupportPage";
+import { LoginAdminPage } from "./admin/pages/LoginAdminPage/LoginAdminPage";
 import { ProtectedRoute } from "./common/components/ProtectedRoute";
-import { TabPage } from "./admin/pages/TabPage";
+import { TabPage } from "./admin/pages/TabPage/TabPage";
 
 
 // const AuthLayout = lazy(()=> import('./auth/layouts/AuthLayout'))
@@ -27,31 +25,15 @@ export const appRouter = createBrowserRouter([
                 element: <HomePage/>
             },
             {
-                path: 'courses',
+                path: 'cursos',
                 element: <CoursesPage />
             },
             {
-                path: 'contact',
+                path: 'contacto',
                 element: <ContactPage />
             }
         ]
     },
-
-    // //Auth Routes
-    // {
-    //     path: '/auth',
-    //     element: <AuthLayout/>,
-    //     children: [
-    //         {
-    //             index: true,
-    //             element: <Navigate to="/auth/login" />
-    //         },
-    //         {
-    //             path: 'login',
-    //             element: <LoginPage />
-    //         }
-    //     ]     
-    // },
     //Admin Routes
     {
         path: '/administracion-del-sistema',        

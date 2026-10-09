@@ -1,4 +1,4 @@
-import { useAuth } from '../../common/components/useAuth';
+import { useAuth } from '../../../common/components/AuthProvider';
 import { useState} from 'react'; 
 import { useNavigate, Navigate} from 'react-router-dom';
 
@@ -25,7 +25,7 @@ export const LoginAdminPage = () => {
     setSuccess('');
 
     if (!username || !password) {
-      setError('Please fill in all fields.');
+      setError('Favor de llenar todos los campos');
       return;
     }
 
@@ -46,8 +46,8 @@ export const LoginAdminPage = () => {
         <h2 className="login-admin-subtitle">Favor de ingresar tu usuario y contraseña.</h2>
 
         {/* Display Status Messages */}
-        {error && <div className="login-admin-error">{error}</div>}
-        {success && <div className="login-admin-error">{success}</div>}
+        {error && <div className="login-admin-error" id= 'errorMessage'>{error}</div>}
+        {/* {success && <div className="login-admin-error">{success}</div>} */}
 
         {/* user Input */}
         <div >

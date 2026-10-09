@@ -1,5 +1,5 @@
 import ReactMarkdown from "react-markdown"
-import { coursesContent } from "../content/coursesContent"
+import { coursesContent } from "../../content/coursesContent"
 
 
 export const CoursesPage = () => {

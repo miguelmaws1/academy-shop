@@ -22,57 +22,6 @@ export interface TabDataResponsePayload {
     TimelineBlock: string[];// The ultra-dense Base64 string for DynamoDB
 }
 
-// export function fake (rawTabBlock: string, stringLayout: string[], sliceResolution: number):string[] {
-//    //const lines = rawTabBlock.toUpperCase().replace(/\|---/g,'|').trim().split('\n');
-//     const lines = rawTabBlock.toUpperCase().trim().split('\n');
-
-//     // Strict Guard: Index and tracking names must align perfectly
-//     if (lines.length < stringLayout.length) {
-//         throw new Error(`Información no coincide: Se esperaba ${stringLayout.length} ${stringLayout.length==1?'línea':'líneas'}, pero se ${lines.length==1?'recibió':'recibieron'} ${lines.length}.`);
-//     }
-
-//     const stringData: string[] = Array(stringLayout.length).fill('');
-
-//     let stringLineIndex = 0; //keeps track of actual string text lines
-
-//     //Validate each text line and after that put them on 
-//     //the string array data if applicable
-//     for(let i = 0; i < lines.length;i++){
-//         if (lines[i].match(/^\s*$/)) {
-//             continue; 
-//         }
-//         let stringIndex = stringLineIndex % stringLayout.length;
-//         stringLineIndex++;
-//         const expectedStringName = stringLayout[stringIndex].toUpperCase();
-//         // Alignment check: Ensure line matches your layout profile tuning name
-//         const match = lines[i].trim().match(/^([A-G](?:B|#)?)\s*\|/);
-
-//         if (!match || match[1] !== expectedStringName) {
-//             throw new Error(`Error de alineación en la línea ${i + 1}: Se esperaba la cuerda de "${expectedStringName}"`);
-//         }
-
-//         const noStringName = lines[i].trim().replace(match[1], '').replaceAll('|---','|');
-//         let measureIndex = 0;
-//         console.log('noStringName ' + noStringName);
-//         noStringName.split("|").forEach(
-//             measure => {
-//                measure = measure.replace(/\d{2}/g, '-');
-//                measure = measure.replace(/,|\||\s/g, '');
-//                console.log('measure ' + measure);
-//                if(measure.length != 0 && measure.length != sliceResolution){
-//                   throw new Error(`El compas ${measureIndex} tiene una resolucción de ${measure.length} en lugar de ${sliceResolution}`);       
-//                }
-//                measureIndex++;
-//             }
-//         );
-
-//         stringData[stringIndex] += noStringName;
-//     }
-    
-//     return stringData;
-
-// }
-
 /**
  * ENCODER: Takes the raw human text layout, processes it horizontally, 
  * maps notes to 0-31 byte states, compresses it once, and wraps it as Base64 text.
